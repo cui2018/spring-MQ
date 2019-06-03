@@ -1,0 +1,3 @@
+com\properpush\voice\producer\service\ProducerService.class
+com\properpush\voice\producer\controller\ProducerController.class
+com\properpush\voice\producer\service\impl\ProducerServiceImpl.class

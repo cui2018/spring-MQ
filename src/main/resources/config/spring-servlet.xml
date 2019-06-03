@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.2.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!-- 启用spring mvc 注解 -->
+    <context:annotation-config/>
+    <!-- 注解驱动 -->
+    <!-- 启用json注解 -->
+    <mvc:annotation-driven>
+        <!-- 指定http返回编码格式，不然返回ajax请求json会出现中文乱码 -->
+        <mvc:message-converters>
+            <bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>text/html;charset=UTF-8</value>
+                        <value>application/json;charset=UTF-8</value>
+                        <value>*/*;charset=UTF-8</value>
+                    </list>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+
+    <!-- 设置使用注解的类所在的包 -->
+    <context:component-scan base-package="com.properpush.voice.producer.controller"/>
+
+    <!--<bean id="advice" class="com.properpush.util.ControllerInterceptor"/>
+    <aop:aspectj-autoproxy/>-->
+
+    <!-- task任务注解扫描包（定时器开关） -->
+    <!-- 用定时器注解 -->
+    <!--<task:annotation-driven/>-->
+    <!-- 扫描位置是 -->
+    <!--<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+    <context:component-scan base-package="com.properpush.voice.producer.controller"/>-->
+</beans>
