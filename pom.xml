@@ -23,7 +23,7 @@
         <logback.version>1.1.7</logback.version>
         <activemq.version>5.11.2</activemq.version>
         <springdatajpa.version>2.1.9.RELEASE</springdatajpa.version>
-        <hibernate.version>5.0.7.Final</hibernate.version>
+        <hibernate.version>5.4.24.Final</hibernate.version>
     </properties>
 
     <dependencies>
